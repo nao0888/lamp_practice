@@ -2,3 +2,14 @@
   margin-top: 10px;
 }
 
+.item_image {
+  height: 150px
+}
+
+table.ranking {
+  counter-reset: ranking;  
+}
+table.ranking tbody th:before {
+   counter-increment: ranking;
+   content: "第" counter(ranking) "位";
+}

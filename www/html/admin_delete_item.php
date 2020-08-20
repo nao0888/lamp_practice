@@ -5,6 +5,7 @@ require_once MODEL_PATH . 'user.php';
 require_once MODEL_PATH . 'item.php';
 
 session_start();
+check_token();
 
 if(is_logined() === false){
   redirect_to(LOGIN_URL);
@@ -19,7 +20,6 @@ if(is_admin($user) === false){
 }
 
 $item_id = get_post('item_id');
-
 
 if(destroy_item($db, $item_id) === true){
   set_message('商品を削除しました。');

@@ -26,11 +26,11 @@
         <tbody>
           <?php foreach($carts as $cart){ ?>
           <tr>
-            <td><img src="<?php print(IMAGE_PATH . $cart['image']);?>" class="item_image"></td>
-            <td><?php print($cart['name']); ?></td>
+            <td><img src="<?php print htmlspecialchars(IMAGE_PATH . $cart['image'], ENT_QUOTES, "UTF-8");?>" class="item_image"></td>
+            <td><?php print htmlspecialchars($cart['name'], ENT_QUOTES, "UTF-8"); ?></td>
             <td><?php print(number_format($cart['price'])); ?>円</td>
             <td>
-                <?php print($cart['amount']); ?>個
+                <?php print htmlspecialchars($cart['amount'], ENT_QUOTES, "UTF-8"); ?>個
             </td>
             <td><?php print(number_format($cart['price'] * $cart['amount'])); ?>円</td>
           </tr>

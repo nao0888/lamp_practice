@@ -5,10 +5,12 @@ require_once MODEL_PATH . 'user.php';
 require_once MODEL_PATH . 'item.php';
 
 session_start();
+check_token();
 
 if(is_logined() === false){
   redirect_to(LOGIN_URL);
 }
+
 
 $db = get_db_connect();
 
@@ -20,6 +22,7 @@ if(is_admin($user) === false){
 
 $item_id = get_post('item_id');
 $stock = get_post('stock');
+
 
 if(update_item_stock($db, $item_id, $stock)){
   set_message('在庫数を変更しました。');
